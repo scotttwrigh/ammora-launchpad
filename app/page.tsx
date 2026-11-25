@@ -32,11 +32,11 @@ export default function Home() {
   const [quote, setQuote] = useState("");
   const [tradeStatus, setTradeStatus] = useState("");
 
-  useEffect(() => {
-    dataApi.getLaunches({ chainId: BigInt(91342) })
-      .then(setLaunches)
-      .catch(console.error);
-  }, []);
+useEffect(() => {
+  dataApi.getLaunches({ chainId: BigInt(91342) })
+    .then((res) => setLaunches(res.items || []))
+    .catch(console.error);
+}, []);
 
   async function handleCreate() {
     if (!publicClient || !walletClient || !address) return;
