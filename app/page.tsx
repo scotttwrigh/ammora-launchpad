@@ -33,7 +33,7 @@ export default function Home() {
   const [tradeStatus, setTradeStatus] = useState("");
 
   useEffect(() => {
-    dataApi.getLaunches({ chainId: BigInt(91342), limit: 30 })
+    dataApi.getLaunches({ chainId: BigInt(91342) })
       .then(setLaunches)
       .catch(console.error);
   }, []);
